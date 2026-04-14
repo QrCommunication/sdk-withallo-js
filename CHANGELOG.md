@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.0.0 (2026-04-14)
+
+
+### Features
+
+* initial release of withallo SDK for JavaScript/TypeScript ([8896c3a](https://github.com/QrCommunication/sdk-withallo-js/commit/8896c3aed292f8976fa33f18293071bd48d80e6a))
+
 ## [0.1.0] - 2026-04-14
 
 ### Features
