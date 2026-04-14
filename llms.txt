@@ -1,0 +1,41 @@
+# @qrcommunication/withallo-sdk
+
+> TypeScript SDK for the Withallo (Allo) API. Isomorphic core (Node 18+, browser, Deno, React Native, edge) + optional React hooks. Covers webhooks, calls, contacts, SMS, and phone-number management plus a stateless receiver for incoming webhook payloads.
+
+Withallo (https://withallo.com) is a cloud telephony platform with SMS and contact management. This SDK wraps its public REST API (`https://api.withallo.com/v1/api`) and provides a typed, well-tested TypeScript client.
+
+Key facts for AI agents:
+
+- **Package**: `@qrcommunication/withallo-sdk` on npm.
+- **Entry points**: `.` for the core client and types, `./react` for React hooks and the provider.
+- **Authentication**: raw API key in the `Authorization` header — **no `Bearer ` prefix**.
+- **Pagination**: 0-indexed `page` (default 0) + `size` (1–100, default 10).
+- **No webhook HMAC signature** is currently documented by Withallo (April 2026). Secure your endpoint with HTTPS + unguessable URL + `allo_number` whitelist.
+
+## Docs
+
+- [README.md](README.md): Bilingual (FR/EN) quick start, resource reference, error handling, React usage, security guidance.
+- [CLAUDE.md](CLAUDE.md): Instructions for AI coding agents (Claude, Cursor, Copilot, Codex). Architecture, common patterns, gotchas, release workflow.
+- [CHANGELOG.md](CHANGELOG.md): Per-version changelog.
+- [docs/openapi.yaml](docs/openapi.yaml): OpenAPI 3.1 spec for the underlying Withallo REST API.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): Architecture diagrams (mermaid), request flow, extension points.
+- [docs/examples/](docs/examples/): Copy-pasteable integration examples (Next.js, Express, React component, webhook receiver).
+- [skill/SKILL.md](skill/SKILL.md): Claude Code skill descriptor — use when working with this SDK in another project.
+
+## Source map
+
+- [src/client.ts](src/client.ts): `WithalloClient` — entry point.
+- [src/config.ts](src/config.ts): `WithalloConfig` — immutable runtime configuration.
+- [src/http.ts](src/http.ts): `HttpClient` — `fetch`-based HTTP with typed error mapping.
+- [src/errors.ts](src/errors.ts): Exception hierarchy (`ApiError` + subclasses, `InvalidWebhookPayloadError`).
+- [src/enums.ts](src/enums.ts): `as const` enums (Environment, Scope, WebhookTopic, CallResult, etc.).
+- [src/resources/](src/resources/): One file per resource (webhooks, calls, contacts, sms, phone-numbers).
+- [src/webhook/](src/webhook/): `WebhookReceiver` + `WebhookEvent` value object.
+- [src/react/](src/react/): Provider, `useWithallo`, hooks (useSendSms, useWebhooks, ...).
+- [tests/](tests/): Vitest suite — `tests/support/mock-fetch.ts` provides a lightweight `fetch` mock for resource tests.
+
+## Related
+
+- [PHP SDK](https://github.com/QrCommunication/sdk-withallo-php) (`qrcommunication/withallo-sdk` on Packagist).
+- [Withallo API docs EN](https://help.withallo.com/en/api-reference/introduction).
+- [Withallo API docs FR](https://help.withallo.com/fr/api-reference/introduction).

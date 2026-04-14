@@ -356,6 +356,21 @@ Si Withallo publie un schéma de signature, une méthode `WebhookReceiver.verify
 
 ---
 
+## Documentation & exemples / Documentation & examples
+
+| Fichier | Contenu |
+|---|---|
+| [`docs/openapi.yaml`](docs/openapi.yaml) | Spécification **OpenAPI 3.1** complète de l'API Withallo (endpoints, schémas de payloads, erreurs, sécurité) |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Schémas **mermaid** : layers, request lifecycle, pipeline webhook, classes d'erreurs, extension points |
+| [`docs/examples/nextjs-webhook-route.ts`](docs/examples/nextjs-webhook-route.ts) | Route Handler **Next.js App Router** pour réception webhook |
+| [`docs/examples/express-server.ts`](docs/examples/express-server.ts) | Serveur **Express** : endpoint SMS + endpoint webhook |
+| [`docs/examples/react-dashboard.tsx`](docs/examples/react-dashboard.tsx) | Dashboard **React** complet avec les hooks du SDK |
+| [`docs/examples/error-handling.ts`](docs/examples/error-handling.ts) | Gestion d'erreurs exhaustive (rate-limit retry, scope, validation…) |
+| [`docs/examples/live-smoke-test.ts`](docs/examples/live-smoke-test.ts) | Test end-to-end contre l'API réelle |
+| [`llms.txt`](llms.txt) | Index au format [llmstxt.org](https://llmstxt.org) pour les LLMs / agents IA |
+| [`CLAUDE.md`](CLAUDE.md) / [`AGENTS.md`](AGENTS.md) | Instructions pour outils IA (Claude, Cursor, Copilot, Codex) |
+| [`skill/SKILL.md`](skill/SKILL.md) | Descripteur de skill Claude Code |
+
 ## Développement / Development
 
 ```bash

@@ -192,7 +192,26 @@ Pattern de test : `mockFetch(responses)` dans `tests/support/mock-fetch.ts` perm
 
 ## Release workflow
 
-1. Merger une PR sur `main` avec Conventional Commits (`feat:`, `fix:`, etc.)
-2. `release-please` ouvre automatiquement une PR "chore(release): X.Y.Z" avec le changelog
-3. Merger la PR release cree le tag `vX.Y.Z` + release GitHub
-4. `release.yml` publie sur npm avec `npm publish --access public` (requiert `NPM_TOKEN` dans les secrets du repo)
+Tag-based, inspired by the QrCommunication/scell-sdk-js pattern.
+
+1. Bump `version` in `package.json`.
+2. Add a new section to `CHANGELOG.md` under `## [X.Y.Z] - YYYY-MM-DD`.
+3. Commit both: `git commit -am "chore: release vX.Y.Z"`.
+4. Tag and push:
+   ```bash
+   git tag -a vX.Y.Z -m "Release vX.Y.Z"
+   git push && git push origin vX.Y.Z
+   ```
+5. The `release.yml` workflow runs automatically on the tag:
+   - `build` — install, typecheck, test, build
+   - `publish` — `npm publish --access public --provenance` via OIDC Trusted Publishing (no `NPM_TOKEN` secret needed; configure a trusted publisher on npmjs.com once)
+   - `github-release` — creates a GitHub Release with notes extracted from `CHANGELOG.md`
+
+## Dev dependencies
+
+- **vitest** 3.2+ (includes patched vite 6+)
+- **happy-dom** 20.9+ (CVE-2024 VM context escape fixed)
+- **@vitest/coverage-v8** 3.2+
+- **tsup** 8.5+ (with esbuild 0.27+)
+
+Dev deps are reviewed via Dependabot on the repo.
