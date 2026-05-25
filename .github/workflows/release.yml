@@ -68,7 +68,6 @@ jobs:
     runs-on: [self-hosted, linux, x64, hetzner, qrcom]
     permissions:
       contents: read
-      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -91,7 +90,7 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        run: npm publish --access public 
+        run: npm publish --access public --provenance=false 
 
   # ---------------------------------------------------------------------------
   # Job: Create the GitHub Release
