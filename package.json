@@ -1,6 +1,6 @@
 {
   "name": "@qrcommunication/withallo-sdk",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "TypeScript SDK for Withallo (Allo) API — webhooks, calls, contacts, SMS and phone numbers. Isomorphic core + optional React hooks.",
   "keywords": [
     "withallo",
