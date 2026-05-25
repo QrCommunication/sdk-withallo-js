@@ -91,7 +91,7 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        run: npm publish --access public --provenance
+        run: npm publish --access public 
 
   # ---------------------------------------------------------------------------
   # Job: Create the GitHub Release
