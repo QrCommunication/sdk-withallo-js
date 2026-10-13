@@ -6,12 +6,7 @@ on:
 jobs:
   build:
     name: Build and Test
-    runs-on:
-    - self-hosted
-    - linux
-    - x64
-    - hetzner
-    - qrcom
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -34,12 +29,7 @@ jobs:
   publish:
     name: Publish to npm
     needs: build
-    runs-on:
-    - self-hosted
-    - linux
-    - x64
-    - hetzner
-    - qrcom
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       id-token: write
@@ -64,12 +54,7 @@ jobs:
   github-release:
     name: Create GitHub Release
     needs: publish
-    runs-on:
-    - self-hosted
-    - linux
-    - x64
-    - hetzner
-    - qrcom
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
