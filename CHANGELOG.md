@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.12] - 2026-10-29
+
+### Changed (dev tooling)
+
+- `vitest` / `@vitest/coverage-v8` 3.2 → 5.0, `tsup` 8.5 → 9.0, `happy-dom`
+  21.0.4, `eslint` 10.13, `typescript-eslint` 8.72; transitive refresh. Closes
+  the dev-only advisories (tinypool, happy-dom, vite, postcss, nanoid,
+  brace-expansion): `pnpm audit` 38 → 0.
+- `typescript` stays on 6.0: TypeScript 7 ships no compiler API, which tsup's
+  declaration build requires.
+- No runtime dependency, no API change.
+
 ## [0.2.11] - 2026-06-06
 
 ### Changed (CI)
